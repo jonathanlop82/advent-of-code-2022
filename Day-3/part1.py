@@ -1,0 +1,32 @@
+letters_values = {
+    'a':1,'b':2,'c':3,'d':4,'e':5,'f':6,'g':7,'h':8,'i':9,'j':10,'k':11,'l':12,'m':13,'n':14,'o':5,'p':16,'q':17,'r':18,'s':19,'t':20,'u':21,'v':22,'w':23,'x':24,'y':25,'z':26,
+    'A':27,'B':28,'C':29,'D':30,'E':31,'F':32,'G':33,'H':34,'I':35,'J':36,'K':37,'L':38,'M':39,'N':40,'O':41,'P':42,'Q':43,'R':44,'S':45,'T':46,'U':47,'V':48,'W':49,'X':50,'Y':51,'Z':52,
+}
+
+letters = []
+
+with open('list.text') as l:
+    lines = l.readlines()
+
+
+for line in lines:
+    line = line.replace('\n','')
+    length = len(line.replace('\n',''))
+    mid = int(length/2)
+    first = line[0:mid]
+    second = line[mid:length]
+
+    for i in first:
+        for j in second:
+            if i == j:
+                letter = i
+                break
+    
+    letters.append(letter)
+
+sum = 0
+
+for l in letters:
+    sum += letters_values[l]
+
+print(sum)
